@@ -13,18 +13,29 @@
   ],
   "author": "Maciek",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "pg": "^7.17.1",
+    "pg": "^7.18.2",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^5.21.3"
+    "sequelize": "^5.22.3"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node start.js",
+    "test": "cross-env DB_NAME=test jest --testTimeout=1000",
+    "pretest": "cross-env DB_NAME=test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jest": "^26.5.3",
+    "supertest": "^5.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maciejGolebio/CRUD.git"
